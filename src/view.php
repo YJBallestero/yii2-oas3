@@ -4,13 +4,13 @@
  *
  * @author    Simon Rodin <master@genx.ru>
  * @license   http://opensource.org/licenses/MIT MIT Public
- * @link      https://github.com/genxoft/yii2-oas3
+ * @link      https://github.com/yjballestero/yii2-oas3
  *
  */
 
 /** @var string $apiJsonUrl */
 
-use genxoft\swagger\Assets;
+use yjballestero\swagger\Assets;
 Assets::register($this);
 
 ?>

@@ -4,11 +4,11 @@
  *
  * @author    Simon Rodin <master@genx.ru>
  * @license   http://opensource.org/licenses/MIT MIT Public
- * @link      https://github.com/genxoft/yii2-oas3
+ * @link      https://github.com/yjballestero/yii2-oas3
  *
  */
 
-namespace genxoft\swagger;
+namespace yjballestero\swagger;
 
 use Yii;
 use yii\base\Action;
@@ -20,7 +20,7 @@ class JsonAction extends Action
     /**
      * @var string|array|Finder directory(s) or filename(s) with open api annotations.
      */
-    public $dirs;
+    public Finder|string|array $dirs;
 
     /**
      * @var array
@@ -29,25 +29,24 @@ class JsonAction extends Action
      *   analysis: defaults to a new Analysis
      *   processors: defaults to the registered processors in Analysis
      */
-    public $scanOptions = [];
+    public array $scanOptions = [];
 
     /**
-     * @inheritdoc
+     * @return \OpenApi\Annotations\OpenApi|null
      */
-    public function run()
-    {
+    public function run(): ?\OpenApi\Annotations\OpenApi {
         $this->initCors();
 
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        return \OpenApi\scan($this->dirs, $this->scanOptions);
+        return \OpenApi\Generator::scan($this->dirs, $this->scanOptions);
     }
 
     /**
      * Init cors.
+     * @return void
      */
-    protected function initCors()
-    {
+    protected function initCors(): void {
         $headers = Yii::$app->getResponse()->getHeaders();
 
         $headers->set('Access-Control-Allow-Headers', 'Content-Type');

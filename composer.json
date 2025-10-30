@@ -1,27 +1,52 @@
 {
-    "name": "genxoft/yii2-oas3",
+    "name": "yjballestero/yii2-oas3",
     "description": "Yii2 Open Api Swagger 3 integration",
-    "keywords": ["open-api","swagger","rest", "restfull", "json", "yii2"],
+    "keywords": ["open-api", "swagger", "rest", "restfull", "json", "yii2"],
+    "homepage": "https://github.com/YJBallestero/yii2-oas3",
     "type": "library",
-    "require": {
-        "php": ">=7.1",
-        "yiisoft/yii2": "~2.0",
-        "ext-json": "*",
-        "zircote/swagger-php": "^3.0",
-        "bower-asset/swagger-ui": "^3.20"
-    },
     "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Simon Rodin",
             "homepage": "http://rodin.red/",
             "email": "master@genx.ru"
+        },
+        {
+            "name": "Yanis Ballestero",
+            "email": "yjballestero@gmail.com",
+            "role": "Developer",
+            "homepage": "https://yjballestero.com"
         }
     ],
+    "require": {
+        "php": ">=8.0",
+        "ext-json": "*",
+        "bower-asset/swagger-ui": "^4.17",
+        "yiisoft/yii2": "~2.0.45",
+        "zircote/swagger-php": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "roave/security-advisories": "dev-latest"
+    },
     "autoload": {
         "psr-4": {
-            "genxoft\\swagger\\": "src/"
+            "yjballestero\\swagger\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }

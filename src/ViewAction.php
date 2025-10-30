@@ -4,11 +4,11 @@
  *
  * @author    Simon Rodin <master@genx.ru>
  * @license   http://opensource.org/licenses/MIT MIT Public
- * @link      https://github.com/genxoft/yii2-oas3
+ * @link      https://github.com/yjballestero/yii2-oas3
  *
  */
 
-namespace genxoft\swagger;
+namespace yjballestero\swagger;
 
 use Yii;
 use yii\base\Action;
@@ -20,14 +20,13 @@ class ViewAction extends Action
      * @var string
      * Open Api Swagger Json URL
      */
-    public $apiJsonUrl;
+    public string $apiJsonUrl;
 
     /**
      * Action runner
      * @return string
      */
-    public function run()
-    {
+    public function run(): string {
         Yii::$app->getResponse()->format = Response::FORMAT_HTML;
 
         return $this->controller->view->renderFile(__DIR__ . '/view.php', [
